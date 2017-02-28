@@ -5,7 +5,7 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Wed Feb 22 18:33:27 2017 detroy_j
-** Last update Thu Feb 23 15:10:07 2017 detroy_j
+** Last update Tue Feb 28 19:05:11 2017 detroy_j
 */
 
 #include <fcntl.h>
@@ -24,14 +24,10 @@ static void	read_file_config(t_tetrimino *tetri, char *str)
   i = 0;
   while ((value = my_strsep(&str, " ")) != NULL)
     {
-      if (!is_number(value))
-	tetri->valid = 0;
-      else
-	{
-	  (i == 0) ? tetri->col = my_getnbr(value) : 0;
-	  (i == 1) ? tetri->row = my_getnbr(value) : 0;
-	  (i == 2) ? tetri->color = my_getnbr(value) : 0;
-	}
+      
+      (i == 0) ? tetri->col = my_getnbr(value) : 0;
+      (i == 1) ? tetri->row = my_getnbr(value) : 0;
+      (i == 2) ? tetri->color = my_getnbr(value) : 0;
       i++;
     }
   if (i != 3)
@@ -134,6 +130,7 @@ int	load_file(t_game *game, char *name, char *path)
   else
     game->last = new;
   game->first = new;
+  game->tetriminos++;
   close(fd);
   return (0);
 }

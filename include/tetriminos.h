@@ -5,7 +5,7 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Tue Feb 21 16:37:41 2017 detroy_j
-** Last update Thu Feb 23 17:07:14 2017 detroy_j
+** Last update Tue Feb 28 19:04:50 2017 detroy_j
 */
 
 #ifndef _TETRIMINOS_
@@ -25,6 +25,7 @@ typedef struct s_tetrimino
 
 typedef struct s_game
 {
+  int	tetriminos;
   t_tetrimino	*first;
   t_tetrimino	*last;
 }	t_game;

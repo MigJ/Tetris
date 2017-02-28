@@ -5,7 +5,7 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Feb 20 18:15:33 2017 detroy_j
-** Last update Thu Feb 23 16:46:50 2017 detroy_j
+** Last update Tue Feb 28 19:11:59 2017 detroy_j
 */
 
 #include <stdlib.h>
@@ -49,10 +49,10 @@ static void	debug_tetriminos(t_game *game)
   while (now != NULL)
     {
       if (now->valid == 0)
-	printf("Tetriminos : %s : error\n", now->name);
+	printf("Tetriminos : Name %s : error\n", now->name);
       else
 	{
-	  printf("Tetriminos : %s : Size %d*%d : Color %d :\n", now->name, now->row, now->col, now->color);
+	  printf("Tetriminos : Name %s : Size %d*%d : Color %d :\n", now->name, now->col, now->row, now->color);
 	  while (i < now->row)
 	    printf("%s\n", now->shape[i++]);
 	}
@@ -67,8 +67,9 @@ void    show_debug(t_game *game, t_options *opts)
   printf("Key Left : %s\nKey Right : %s\n", get_key_name(opts->k_left), get_key_name(opts->k_right));
   printf("Key Turn : %s\nKey Drop : %s\n", get_key_name(opts->k_turn), get_key_name(opts->k_drop));
   printf("Key Quit : %s\nKey Pause : %s\n", get_key_name(opts->k_quit), get_key_name(opts->k_pause));
-  (opts->without_next == 0) ? printf("Next : No\n") : printf("Next : Yes\n");
+  (opts->without_next == 0) ? printf("Next : Yes\n") : printf("Next : No\n");
   printf("Level : %d\nSize : %d*%d\n", opts->level, opts->map_size_row, opts->map_size_col);
+  printf("Tetriminos : %d\n", game->tetriminos);
   debug_tetriminos(game);
   printf("Press any key to start Tetris\n");
 }
