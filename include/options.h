@@ -5,7 +5,7 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Feb 20 14:51:00 2017 detroy_j
-** Last update Thu Feb 23 16:34:55 2017 detroy_j
+** Last update Tue Feb 28 18:17:45 2017 detroy_j
 */
 
 #include "tetriminos.h"
@@ -74,6 +74,7 @@ struct s_options
   int	map_size_row;
   short	without_next;
   short	debug;
+  char	*bin_name;
 };
 
 /*
@@ -117,6 +118,6 @@ int     is_double_key(t_options *opts, int key);
 ** Debug & Help
 */
 void    show_debug(t_game *game, t_options *opts);
-void	show_help();
+void	show_help(t_options *opts, int i);
 
 # endif

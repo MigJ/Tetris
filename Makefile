@@ -5,7 +5,7 @@
 ## Login   <detroy_j@epitech.net>
 ## 
 ## Started on  Fri Oct 14 07:47:24 2016 jean-baptiste detroyes
-## Last update Thu Feb 23 14:54:51 2017 detroy_j
+## Last update Thu Feb 23 16:47:04 2017 detroy_j
 ##
 
 SRCS	=	srcs/main.c	\
@@ -23,7 +23,7 @@ SRCS	=	srcs/main.c	\
 		srcs/tetriminos/open.c	\
 		srcs/tetriminos/order.c
 
-FLAGS	=	-Llib -lmy -lncurses
+FLAGS	=	-g -Llib -lmy -lncurses
 
 CFLAGS	+=	-Wextra -Wall -Werror -I include
 

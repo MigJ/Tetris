@@ -5,7 +5,7 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Feb 20 18:02:37 2017 detroy_j
-** Last update Thu Feb 23 16:00:57 2017 detroy_j
+** Last update Tue Feb 28 18:22:26 2017 detroy_j
 */
 
 #include <stdlib.h>
@@ -31,6 +31,8 @@ void	get_option(t_options *opts, char *name, char *value)
     set_key_pause(opts, value);
   else if (my_strcmp(name, OPT_SIZE) == 0)
     set_map_size(opts, value);
+  else
+    show_help(opts, 84);
 }
 
 void	get_short_option(t_options *opts, char *name, char *value)
@@ -49,6 +51,8 @@ void	get_short_option(t_options *opts, char *name, char *value)
     set_key_quit(opts, value);
   else if (my_strcmp(name, SOPT_KEY_PAUSE) == 0)
     set_key_pause(opts, value);
+  else
+    show_help(opts, 84);
 }
 
 int	get_static_arguments(t_options *opts, int i, char **av)
@@ -64,10 +68,7 @@ int	get_static_arguments(t_options *opts, int i, char **av)
       return (1);
     }
   else if (my_strcmp(av[i], "--help") == 0)
-    {
-      show_help();
-      exit(0);
-    }
+    show_help(opts, 0);
   return (0);
 }
 
@@ -86,7 +87,7 @@ void	get_arguments(t_options *opts, int ac, char **av)
 	}
       if (!have_equal(av[i]))
 	{
-	  (i + 1 == ac) ? exit(84) : 0;
+	  (i + 1 == ac) ? show_help(opts, 84) : 0;
 	  get_short_option(opts, av[i], av[i + 1]);
 	  i += 2;
 	  continue;

@@ -5,14 +5,16 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Feb 20 19:28:19 2017 detroy_j
-** Last update Thu Feb 23 16:33:59 2017 detroy_j
+** Last update Tue Feb 28 18:18:03 2017 detroy_j
 */
 
+#include <stdlib.h>
 #include <stdio.h>
+#include "options.h"
 
-void	show_help()
+void	show_help(t_options *opts, int i)
 {
-  printf("Usage:   ./tetris [options]\nOptions:\n");
+  printf("Usage:   %s [options]\nOptions:\n", opts->bin_name);
   printf("   --help\t\tDisplay this help\n");
   printf("   -l --level={num}\tStart Tetris at level num (def: 1)\n");
   printf("   -kl --key-left={K}\tMove the tetrimino LEFT using the K key (def: left arrow)\n");
@@ -24,4 +26,5 @@ void	show_help()
   printf("   --map-size={row,col}\tSet the numbers of rows and columns of the map (def: 20,10)\n");
   printf("   -w --without-next\tHide next tetrimino (def: false)\n");
   printf("   -d --debug\t\tDebug mode (def: false)\n");
+  exit(i);
 }

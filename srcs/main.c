@@ -5,7 +5,7 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Feb 20 14:56:18 2017 detroy_j
-** Last update Thu Feb 23 14:56:10 2017 detroy_j
+** Last update Tue Feb 28 18:24:12 2017 detroy_j
 */
 
 #include <unistd.h>
@@ -22,6 +22,9 @@ int	main(int ac, char **av)
   t_options	*opts;
 
   opts = init_options();
+  if ((opts->bin_name = malloc(sizeof(char) * my_strlen(av[0]) + 1)) == NULL)
+    exit(84);
+  my_strcpy(opts->bin_name, av[0]);
   get_arguments(opts, ac, av);
   game = malloc(sizeof(*game));
   game->first = game->last = NULL;
