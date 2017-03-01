@@ -5,23 +5,24 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Feb 20 18:12:59 2017 detroy_j
-** Last update Wed Feb 22 17:49:34 2017 detroy_j
+** Last update Wed Mar  1 15:30:57 2017 detroy_j
 */
 
 #include <stdlib.h>
 #include "options.h"
+#include "my.h"
 
-int	is_double_key(t_options *opts, int key)
+int	is_double_key(t_options *opts, char *key)
 {
-  int   nb;
+  int	nb;
 
   nb = 0;
-  (opts->k_left == key) ? nb++ : 0;
-  (opts->k_right == key) ? nb++ : 0;
-  (opts->k_turn == key) ? nb++ : 0;
-  (opts->k_drop == key) ? nb++ : 0;
-  (opts->k_pause == key) ? nb++ : 0;
-  (opts->k_quit == key) ? nb++ : 0;
+  (my_strcmp(opts->k_left, key) == 0) ? nb++ : 0;
+  (my_strcmp(opts->k_right, key) == 0) ? nb++ : 0;
+  (my_strcmp(opts->k_turn, key) == 0) ? nb++ : 0;
+  (my_strcmp(opts->k_drop, key) == 0) ? nb++ : 0;
+  (my_strcmp(opts->k_pause, key) == 0) ? nb++ : 0;
+  (my_strcmp(opts->k_quit, key) == 0) ? nb++ : 0;
   return ((nb == 1) ? 0 : 1);
 }
 

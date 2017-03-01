@@ -5,7 +5,7 @@
 ## Login   <detroy_j@epitech.net>
 ## 
 ## Started on  Fri Oct 14 07:47:24 2016 jean-baptiste detroyes
-## Last update Thu Feb 23 16:47:04 2017 detroy_j
+## Last update Wed Mar  1 18:11:31 2017 detroy_j
 ##
 
 SRCS	=	srcs/main.c	\
@@ -18,14 +18,15 @@ SRCS	=	srcs/main.c	\
 		srcs/options/errors.c	\
 		srcs/options/debug.c	\
 		srcs/options/help.c	\
+		srcs/options/get_keys_nodisplay.c	\
 		srcs/tetriminos/load.c	\
 		srcs/tetriminos/misc.c	\
 		srcs/tetriminos/open.c	\
 		srcs/tetriminos/order.c
 
-FLAGS	=	-g -Llib -lmy -lncurses
+FLAGS	=	-Llib -lmy -lncurses
 
-CFLAGS	+=	-Wextra -Wall -Werror -I include
+CFLAGS	+=	-g -Wextra -Wall -I include
 
 OBJ	=	$(SRCS:.c=.o)
 

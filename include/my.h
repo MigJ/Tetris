@@ -5,11 +5,11 @@
 ** Login   <detroy_j@epitech.net>
 ** 
 ** Started on  Thu Oct 13 08:22:12 2016 jean-baptiste detroyes
-** Last update Sun Jan 22 21:09:03 2017 detroy_j
+** Last update Wed Mar  1 12:33:53 2017 detroy_j
 */
 
-#ifndef MY_H
-#define MY_H
+#ifndef _MY_H_
+#define _MY_H_
 
 int	my_putchar(char c);
 int	my_isneg(int nb);
@@ -18,7 +18,6 @@ int	my_swap(int *a, int *b);
 int	my_putstr(const char *str);
 size_t	my_strlen(const char *s);
 int	my_getnbr(char *str);
-void	my_sort_int_tab(int *tab, int size);
 int	my_power_rec(int nb, int power);
 int	my_square_root(int nb);
 int	my_is_prime(int nb);

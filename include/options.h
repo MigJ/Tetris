@@ -5,7 +5,7 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Feb 20 14:51:00 2017 detroy_j
-** Last update Tue Feb 28 18:17:45 2017 detroy_j
+** Last update Wed Mar  1 18:18:52 2017 detroy_j
 */
 
 #include "tetriminos.h"
@@ -44,8 +44,8 @@
 ** Options default arguments
 */
 # define DEFAULT_LEVEL (1)
-# define DEFAULT_KEY_QUIT ('q')
-# define DEFAULT_KEY_PAUSE (' ')
+# define DEFAULT_KEY_QUIT ("q")
+# define DEFAULT_KEY_PAUSE (" ")
 # define DEFAULT_ROW (20)
 # define DEFAULT_COL (10)
 # define DEFAULT_WITHOUT (0)
@@ -64,12 +64,12 @@ typedef struct s_options t_options;
 struct s_options
 {
   int	level;
-  int	k_left;
-  int	k_right;
-  int	k_turn;
-  int	k_drop;
-  int	k_quit;
-  int	k_pause;
+  char	*k_left;
+  char	*k_right;
+  char	*k_turn;
+  char	*k_drop;
+  char	*k_quit;
+  char	*k_pause;
   int	map_size_col;
   int	map_size_row;
   short	without_next;
@@ -83,7 +83,7 @@ struct s_options
 t_options       *init_options();
 
 /*
-** Misc
+** Miscs
 */
 int     is_number(const char *str);
 int     have_comma(const char *str);
@@ -95,6 +95,7 @@ void    my_putstr_error(const char *s);
 */
 void    get_arguments(t_options *opts, int ac, char **av);
 void    get_option(t_options *opts, char *name, char *value);
+char    *get_no_display_key(char *str);
 
 /*
 ** Set options
@@ -112,7 +113,7 @@ void    set_map_size(t_options *opts, char *value);
 ** Error handling
 */
 void    check_error_key(t_options *opts);
-int     is_double_key(t_options *opts, int key);
+int     is_double_key(t_options *opts, char *key);
 
 /*
 ** Debug & Help

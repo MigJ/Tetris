@@ -5,38 +5,21 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Feb 20 18:15:33 2017 detroy_j
-** Last update Tue Feb 28 19:11:59 2017 detroy_j
+** Last update Wed Mar  1 18:25:38 2017 detroy_j
 */
 
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
+#include "my.h"
 #include "options.h"
 #include "tetriminos.h"
 
-static char	*get_key_name(int i)
+static char	*get_key_name(char *str)
 {
-  char	*s;
-
-  if (i == 260)
-    return (_KEY_LEFT);
-  else if (i == 261)
-    return (_KEY_RIGHT);
-  else if (i == 259)
-    return (_KEY_UP);
-  else if (i == 258)
-    return (_KEY_DOWN);
-  else if (i == 32)
+  if (my_strcmp(str, DEFAULT_KEY_PAUSE) == 0)
     return (_KEY_SPACE);
-  else
-    {
-      if ((s = malloc(sizeof(char) * 2)) == NULL)
-	exit(84);
-      s[0] = i;
-      s[1] = '\0';
-      return (s);
-    }
-  return (NULL);
+  return (str);
 }
 
 static void	debug_tetriminos(t_game *game)
@@ -49,7 +32,7 @@ static void	debug_tetriminos(t_game *game)
   while (now != NULL)
     {
       if (now->valid == 0)
-	printf("Tetriminos : Name %s : error\n", now->name);
+	printf("Tetriminos : Name %s : Error\n", now->name);
       else
 	{
 	  printf("Tetriminos : Name %s : Size %d*%d : Color %d :\n", now->name, now->col, now->row, now->color);

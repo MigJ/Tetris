@@ -5,7 +5,7 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Tue Feb 21 16:37:41 2017 detroy_j
-** Last update Tue Feb 28 19:04:50 2017 detroy_j
+** Last update Wed Mar  1 18:20:22 2017 detroy_j
 */
 
 #ifndef _TETRIMINOS_
@@ -30,12 +30,23 @@ typedef struct s_game
   t_tetrimino	*last;
 }	t_game;
 
-int     order(t_game *g);
+/*
+** Load
+*/
 int     open_directory(t_game *game);
 int     load_file(t_game *game, char *name, char *path);
-char    *strcat_path(char *name);
+
+/*
+** Miscs
+*/
 int     is_valid_extension(char *name);
 int     is_valid_file(char *name);
 int     is_number(const char *str);
+char    *strcat_path(char *name);
+
+/*
+** Tri
+*/
+int     order(t_game *g);
 
 # endif
