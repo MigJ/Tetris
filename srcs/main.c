@@ -5,7 +5,7 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Feb 20 14:56:18 2017 detroy_j
-** Last update Wed Mar  1 17:28:02 2017 detroy_j
+** Last update Thu Mar  2 17:18:55 2017 detroy_j
 */
 
 #include <unistd.h>
@@ -23,8 +23,6 @@ int	main(int ac, char **av)
   t_options	*opts;
   int	error;
 
-  initscr();
-  endwin();
   if (setupterm(NULL, 1, &error) != OK)
     return (84);
   opts = init_options();
