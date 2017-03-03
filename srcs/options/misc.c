@@ -5,7 +5,7 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Feb 20 17:53:37 2017 detroy_j
-** Last update Tue Feb 21 20:07:08 2017 detroy_j
+** Last update Fri Mar  3 20:08:08 2017 detroy_j
 */
 
 #include <string.h>
@@ -38,7 +38,7 @@ int	have_comma(const char *str)
 {
   int   i;
   int   comma;
-  
+
   i = comma = 0;
   while (str[i] != '\0')
     {

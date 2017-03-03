@@ -5,7 +5,7 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Wed Dec 21 15:09:00 2016 detroy_j
-** Last update Thu Feb 16 14:45:56 2017 detroy_j
+** Last update Fri Mar  3 18:46:51 2017 detroy_j
 */
 
 #include <stdlib.h>
@@ -76,6 +76,11 @@ char	*get_next_line(const int fd)
     {
       line[i++] = ch;
       ch = my_read(fd);
+      if (ch == -1)
+	{
+	  (i % (READ_SIZE + 1) == 0) ? line = remalloc(line, i) : 0;
+	  break;
+	}
       (i % (READ_SIZE + 1) == 0) ? line = remalloc(line, i) : 0;
     }
   line[i] = '\0';

@@ -5,7 +5,7 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Wed Feb 22 18:33:27 2017 detroy_j
-** Last update Fri Mar  3 12:20:14 2017 detroy_j
+** Last update Fri Mar  3 20:10:30 2017 detroy_j
 */
 
 #include <fcntl.h>
@@ -24,7 +24,6 @@ static void	read_file_config(t_tetrimino *tetri, char *str)
   i = 0;
   while ((value = my_strsep(&str, " ")) != NULL)
     {
-      
       (i == 0) ? tetri->col = my_getnbr(value) : 0;
       (i == 1) ? tetri->row = my_getnbr(value) : 0;
       (i == 2) ? tetri->color = my_getnbr(value) : 0;
@@ -58,10 +57,8 @@ static int	read_file_map(t_tetrimino *tetri, char *str, int i, int l)
       j++;
     }
   while (j < tetri->col)
-    {
-      tetri->shape[i][j] = ' ';
-      j++;
-    }
+    tetri->shape[i][j++] = ' ';
+  tetri->d_shape[i] = my_strdup(str);
   tetri->shape[i][j] = '\0';
   return (l);
 }
@@ -83,43 +80,57 @@ static int	get_name(t_tetrimino *t, char *name)
   i = 0;
   while (i < len)
     {
-      t->name[i] = name[i]; 
+      t->name[i] = name[i];
       i++;
     }
   t->name[i] = '\0';
   return (0);
 }
 
-int	load_file(t_game *game, char *name, char *path)
+static void	malloc_tetrimino(t_tetrimino *t, int fd)
+{
+  char	*str;
+  int	i;
+
+  i = 0;
+  if ((str = get_next_line(fd)) != NULL)
+    {
+      read_file_config(t, str);
+      free(str);
+    }
+  if (t->row > 0 && t->col > 0)
+    {
+      if ((t->shape = malloc(sizeof(char *) * (t->row + 1))) == NULL)
+	exit(84);
+      if ((t->d_shape = malloc(sizeof(char *) * (t->row + 1))) == NULL)
+	exit(84);
+      while (i < t->row)
+	{
+	  if ((t->shape[i] = malloc(sizeof(char) * (t->col + 1))) == NULL)
+	    exit(84);
+	  if ((t->d_shape[i] = malloc(sizeof(char) * (t->col + 1))) == NULL)
+	    exit(84);
+	  i++;
+	}
+      t->shape[t->row] = t->d_shape[t->row] = NULL;
+    }
+}
+
+int	load_file(t_game *game, char *name, int fd)
 {
   t_tetrimino   *new;
-  int   fd;
   char  *str;
   int   i;
   int   j;
   int   l;
 
-  if ((fd = open(path, O_RDONLY)) < 0)
-    return (0);
   if ((new = malloc(sizeof(*new))) == NULL)
     exit(84);
-  str = NULL;
   get_name(new, name);
   new->valid = 1;
   new->col = new->row = new->color = -1;
   i = j = l = 0;
-  if ((str = get_next_line(fd)) != NULL)
-    read_file_config(new, str);
-  if (new->row > 0 && new->col > 0)
-    {
-      if ((new->shape = malloc(sizeof(char *) * (new->row + 1))) == NULL)
-	exit(84);
-      while (i < new->row)
-	if ((new->shape[i++] = malloc(sizeof(char) * (new->col + 1))) == NULL)
-	  exit(84);
-      new->shape[new->row] = NULL;
-    }
-  i = l = 0;
+  malloc_tetrimino(new, fd);
   while ((str = get_next_line(fd)) != NULL && j < new->row)
     {
       l = read_file_map(new, str, i, l);
@@ -127,16 +138,9 @@ int	load_file(t_game *game, char *name, char *path)
       i++;
       j++;
     }
-  if (l + 1 < new->col || new->color == -1 || new->col == -1 || new->row == -1 || new->color >= 1000)
+  if (l + 1 < new->col || new->color == -1 || new->col == -1
+      || new->row == -1 || new->color >= 1000)
     new->valid = 0;
-  new->next = game->first;
-  new->prev = NULL;
-  if (game->first)
-    game->first->prev = new;
-  else
-    game->last = new;
-  game->first = new;
-  game->tetriminos++;
-  close(fd);
+  set_pointer(game, new, fd);
   return (0);
 }

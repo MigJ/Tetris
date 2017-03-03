@@ -5,7 +5,7 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Fri Mar  3 13:24:04 2017 detroy_j
-** Last update Fri Mar  3 13:31:50 2017 detroy_j
+** Last update Fri Mar  3 19:35:58 2017 detroy_j
 */
 
 #include <stdlib.h>
@@ -21,9 +21,10 @@ static void	free_tetrimino(t_tetrimino *t)
     {
       if (t->shape[i] != NULL)
 	free(t->shape[i]);
+      if (t->d_shape[i] != NULL)
+	free(t->d_shape[i]);
       i++;
     }
-  //(t->shape != NULL) ? free(t->shape) : 0;
   free(t);
 }
 

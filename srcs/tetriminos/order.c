@@ -5,16 +5,16 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Thu Feb 23 13:07:04 2017 detroy_j
-** Last update Thu Feb 23 16:10:38 2017 detroy_j
+** Last update Fri Mar  3 20:11:42 2017 detroy_j
 */
 
 #include <string.h>
 #include "tetriminos.h"
 
-int     alpha_tri(char *s1, char *s2)
+static int	alpha_tri(char *s1, char *s2)
 {
-  char  a;
-  char  b;
+  char		a;
+  char		b;
 
   while (*s1 != '\0' && *s2 != '\0')
     {
@@ -35,7 +35,7 @@ int     alpha_tri(char *s1, char *s2)
   return (0);
 }
 
-void    swap_element(t_game *g, t_tetrimino *now, t_tetrimino *tmp)
+static void	swap_element(t_game *g, t_tetrimino *now, t_tetrimino *tmp)
 {
   t_tetrimino        *tmp2;
 
@@ -50,7 +50,7 @@ void    swap_element(t_game *g, t_tetrimino *now, t_tetrimino *tmp)
   now->prev = tmp;
 }
 
-int     order(t_game *g)
+int	order(t_game *g)
 {
   t_tetrimino        *now;
 

@@ -5,16 +5,16 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Wed Feb 22 17:53:51 2017 detroy_j
-** Last update Fri Mar  3 11:22:07 2017 detroy_j
+** Last update Fri Mar  3 20:10:58 2017 detroy_j
 */
 
 #include <stdlib.h>
 #include <sys/stat.h>
-#include <sys/types.h> 
+#include <sys/types.h>
 #include <string.h>
 #include "my.h"
 
-int     is_valid_extension(char *name)
+int	is_valid_extension(char *name)
 {
   int	len;
 

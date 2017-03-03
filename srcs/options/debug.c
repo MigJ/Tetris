@@ -5,7 +5,7 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Feb 20 18:15:33 2017 detroy_j
-** Last update Wed Mar  1 18:25:38 2017 detroy_j
+** Last update Fri Mar  3 20:06:13 2017 detroy_j
 */
 
 #include <stdlib.h>
@@ -22,37 +22,71 @@ static char	*get_key_name(char *str)
   return (str);
 }
 
+static void	print_tetrimino(t_tetrimino *t)
+{
+  int	i;
+
+  i = 0;
+  my_putstr("Tetriminos : Name ");
+  my_putstr(t->name);
+  my_putstr(" : Size ");
+  my_put_nbr(t->col);
+  my_putchar('*');
+  my_put_nbr(t->color);
+  my_putstr(" : Color ");
+  my_put_nbr(t->color);
+  my_putstr(" :\n");
+  while (i < t->row)
+    {
+      my_putstr(t->d_shape[i++]);
+      my_putchar('\n');
+    }
+}
+
 static void	debug_tetriminos(t_game *game)
 {
   t_tetrimino   *now;
-  int   i;
 
-  i = 0;
   now = game->first;
   while (now != NULL)
     {
       if (now->valid == 0)
-	printf("Tetriminos : Name %s : Error\n", now->name);
-      else
 	{
-	  printf("Tetriminos : Name %s : Size %d*%d : Color %d :\n", now->name, now->col, now->row, now->color);
-	  while (i < now->row)
-	    printf("%s\n", now->shape[i++]);
+	  my_putstr("Tetriminos : Name ");
+	  my_putstr(now->name);
+	  my_putstr(" : Error\n");
 	}
-      i = 0;
+      else
+	print_tetrimino(now);
       now = now->next;
     }
 }
 
-void    show_debug(t_game *game, t_options *opts)
+void	show_debug(t_game *game, t_options *opts)
 {
-  printf("*** DEBUG MODE ***\n");
-  printf("Key Left : %s\nKey Right : %s\n", get_key_name(opts->k_left), get_key_name(opts->k_right));
-  printf("Key Turn : %s\nKey Drop : %s\n", get_key_name(opts->k_turn), get_key_name(opts->k_drop));
-  printf("Key Quit : %s\nKey Pause : %s\n", get_key_name(opts->k_quit), get_key_name(opts->k_pause));
-  (opts->without_next == 0) ? printf("Next : Yes\n") : printf("Next : No\n");
-  printf("Level : %d\nSize : %d*%d\n", opts->level, opts->map_size_row, opts->map_size_col);
-  printf("Tetriminos : %d\n", game->tetriminos);
+  my_putstr("*** DEBUG MODE ***\nKey Left : ");
+  my_putstr(get_key_name(opts->k_left));
+  my_putstr("\nKey Right : ");
+  my_putstr(get_key_name(opts->k_right));
+  my_putstr("\nKey Turn : ");
+  my_putstr(get_key_name(opts->k_turn));
+  my_putstr("\nKey Drop : ");
+  my_putstr(get_key_name(opts->k_drop));
+  my_putstr("\nKey Quit : ");
+  my_putstr(get_key_name(opts->k_quit));
+  my_putstr("\nKey Pause : ");
+  my_putstr(get_key_name(opts->k_pause));
+  (opts->without_next == 0) ? my_putstr("\nNext : Yes\n")
+    : my_putstr("\nNext : No\n");
+  my_putstr("Level : ");
+  my_put_nbr(opts->level);
+  my_putstr("\nSize : ");
+  my_put_nbr(opts->map_size_row);
+  my_putchar('*');
+  my_put_nbr(opts->map_size_col);
+  my_putstr("\nTetriminos : ");
+  my_put_nbr(game->tetriminos);
+  my_putchar('\n');
   debug_tetriminos(game);
-  printf("Press any key to start Tetris\n");
+  my_putstr("Press any key to start Tetris\n");
 }

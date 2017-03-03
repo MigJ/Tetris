@@ -5,7 +5,7 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Feb 20 18:02:37 2017 detroy_j
-** Last update Fri Mar  3 11:07:18 2017 detroy_j
+** Last update Fri Mar  3 20:06:47 2017 detroy_j
 */
 
 #include <stdlib.h>
@@ -66,7 +66,8 @@ int	get_static_arguments(t_options *opts, int i, char **av)
       opts->without_next = 1;
       return (1);
     }
-  else if (my_strcmp(av[i], OPT_DEBUG) == 0 || my_strcmp(av[i], SOPT_DEBUG) == 0)
+  else if (my_strcmp(av[i], OPT_DEBUG) == 0
+	   || my_strcmp(av[i], SOPT_DEBUG) == 0)
     {
       opts->debug = 1;
       return (1);

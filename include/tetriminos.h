@@ -5,7 +5,7 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Tue Feb 21 16:37:41 2017 detroy_j
-** Last update Fri Mar  3 13:29:46 2017 detroy_j
+** Last update Fri Mar  3 20:03:40 2017 detroy_j
 */
 
 #ifndef _TETRIMINOS_
@@ -19,6 +19,7 @@ typedef struct s_tetrimino
   int	row;
   int	col;
   char	**shape;
+  char	**d_shape;
   struct s_tetrimino	*next;
   struct s_tetrimino	*prev;
 }	t_tetrimino;
@@ -34,7 +35,8 @@ typedef struct s_game
 ** Load
 */
 int     open_directory(t_game *game);
-int     load_file(t_game *game, char *name, char *path);
+int     load_file(t_game *game, char *name, int fd);
+void    set_pointer(t_game *game, t_tetrimino *t, int fd);
 
 /*
 ** Miscs
