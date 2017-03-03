@@ -5,7 +5,7 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Wed Feb 22 18:33:27 2017 detroy_j
-** Last update Tue Feb 28 19:05:11 2017 detroy_j
+** Last update Fri Mar  3 12:11:06 2017 detroy_j
 */
 
 #include <fcntl.h>
@@ -50,7 +50,9 @@ static int	read_file_map(t_tetrimino *tetri, char *str, int i, int l)
     }
   while (str[j] != '\0')
     {
-      if (str[j] == '*' && l <= j)
+      if (str[j] != '*' && str[j] != ' ')
+	return (tetri->valid = 0);
+      if (l <= j)
 	l = j;
       tetri->shape[i][j] = str[j];
       j++;
@@ -66,21 +68,25 @@ static int	read_file_map(t_tetrimino *tetri, char *str, int i, int l)
 
 static int	get_name(t_tetrimino *t, char *name)
 {
-  int		i;
-  int		j;
+  int	len;
+  int	i;
 
-  i = j = 0;
-  while (name[i++] != '\0')
-    if (name[i] == '.')
-      break;
-  if ((t->name = malloc(sizeof(char) * (my_strlen(name) - i + 1))) == NULL)
-    exit(84);
-  while (j < i)
+  len = my_strlen(name);
+  while (len > 0)
     {
-      t->name[j] = name[j];
-      j++;
+      if (name[len] == '.')
+	break;
+      len--;
     }
-  t->name[j] = '\0';
+  if ((t->name = malloc(sizeof(char) * (len + 1))) == NULL)
+    exit(84);
+  i = 0;
+  while (i < len)
+    {
+      t->name[i] = name[i]; 
+      i++;
+    }
+  t->name[i] = '\0';
   return (0);
 }
 
@@ -121,7 +127,7 @@ int	load_file(t_game *game, char *name, char *path)
       i++;
       j++;
     }
-  if (l + 1 < new->col)
+  if (l + 1 < new->col || new->color == -1 || new->col == -1 || new->row == -1)
     new->valid = 0;
   new->next = game->first;
   new->prev = NULL;

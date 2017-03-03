@@ -5,7 +5,7 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Wed Feb 22 17:53:51 2017 detroy_j
-** Last update Wed Feb 22 18:48:05 2017 detroy_j
+** Last update Fri Mar  3 11:22:07 2017 detroy_j
 */
 
 #include <stdlib.h>
@@ -16,12 +16,16 @@
 
 int     is_valid_extension(char *name)
 {
-  while (*name != '\0')
+  int	len;
+
+  len = my_strlen(name);
+  while (len > 0)
     {
-      if (*name == '.')
+      if (name[len] == '.')
 	break;
-      name++;
+      len--;
     }
+  name += len;
   if (my_strcmp(name, ".tetrimino") == 0)
     return (1);
   return (0);

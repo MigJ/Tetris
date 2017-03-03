@@ -5,7 +5,7 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Feb 20 18:02:37 2017 detroy_j
-** Last update Tue Feb 28 18:22:26 2017 detroy_j
+** Last update Fri Mar  3 11:07:18 2017 detroy_j
 */
 
 #include <stdlib.h>
@@ -15,6 +15,8 @@
 
 void	get_option(t_options *opts, char *name, char *value)
 {
+  if (value[0] == '\0')
+    show_help(opts, 84);
   if (my_strcmp(name, OPT_LEVEL) == 0)
     set_start_level(opts, value);
   else if (my_strcmp(name, OPT_KEY_LEFT) == 0)
@@ -37,6 +39,8 @@ void	get_option(t_options *opts, char *name, char *value)
 
 void	get_short_option(t_options *opts, char *name, char *value)
 {
+  if (value[0] == '\0')
+    show_help(opts, 84);
   if (my_strcmp(name, SOPT_LEVEL) == 0)
     set_start_level(opts, value);
   else if (my_strcmp(name, SOPT_KEY_LEFT) == 0)
