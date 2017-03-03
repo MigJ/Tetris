@@ -5,7 +5,7 @@
 ## Login   <detroy_j@epitech.net>
 ## 
 ## Started on  Fri Oct 14 07:47:24 2016 jean-baptiste detroyes
-## Last update Wed Mar  1 18:11:31 2017 detroy_j
+## Last update Fri Mar  3 13:30:30 2017 detroy_j
 ##
 
 SRCS	=	srcs/main.c	\
@@ -19,10 +19,12 @@ SRCS	=	srcs/main.c	\
 		srcs/options/debug.c	\
 		srcs/options/help.c	\
 		srcs/options/get_keys_nodisplay.c	\
+		srcs/options/free.c	\
 		srcs/tetriminos/load.c	\
 		srcs/tetriminos/misc.c	\
 		srcs/tetriminos/open.c	\
-		srcs/tetriminos/order.c
+		srcs/tetriminos/order.c	\
+		srcs/tetriminos/free.c
 
 FLAGS	=	-Llib -lmy -lncurses
 

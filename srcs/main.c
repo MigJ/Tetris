@@ -5,7 +5,7 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Feb 20 14:56:18 2017 detroy_j
-** Last update Fri Mar  3 10:32:14 2017 detroy_j
+** Last update Fri Mar  3 13:44:12 2017 detroy_j
 */
 
 #include <unistd.h>
@@ -28,9 +28,7 @@ char	*get_term_variable(char **env)
       while ((result = my_strsep(&env[i], "=")) != NULL)
 	{
 	  if (my_strcmp(result, "TERM") == 0)
-	    {
-	      return (env[i]);
-	    }
+	    return (env[i]);
 	}
       i++;
     }
@@ -57,6 +55,8 @@ int	main(int ac, char **av, char **env)
   order(game);
   if (opts->debug == 1)
     show_debug(game, opts);
-    check_error_key(opts);
-  return (free(opts), 0);
+  check_error_key(opts);
+  my_free_options(opts);
+  my_free_tetriminos(game);
+  return (0);
 }

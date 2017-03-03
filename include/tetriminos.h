@@ -5,7 +5,7 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Tue Feb 21 16:37:41 2017 detroy_j
-** Last update Wed Mar  1 18:20:22 2017 detroy_j
+** Last update Fri Mar  3 13:29:46 2017 detroy_j
 */
 
 #ifndef _TETRIMINOS_
@@ -48,5 +48,10 @@ char    *strcat_path(char *name);
 ** Tri
 */
 int     order(t_game *g);
+
+/*
+** Free
+*/
+void    my_free_tetriminos(t_game *game);
 
 # endif

@@ -5,7 +5,7 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Wed Feb 22 18:33:27 2017 detroy_j
-** Last update Fri Mar  3 12:11:06 2017 detroy_j
+** Last update Fri Mar  3 12:20:14 2017 detroy_j
 */
 
 #include <fcntl.h>
@@ -127,7 +127,7 @@ int	load_file(t_game *game, char *name, char *path)
       i++;
       j++;
     }
-  if (l + 1 < new->col || new->color == -1 || new->col == -1 || new->row == -1)
+  if (l + 1 < new->col || new->color == -1 || new->col == -1 || new->row == -1 || new->color >= 1000)
     new->valid = 0;
   new->next = game->first;
   new->prev = NULL;
