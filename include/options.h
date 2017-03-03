@@ -5,7 +5,7 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Feb 20 14:51:00 2017 detroy_j
-** Last update Wed Mar  1 18:18:52 2017 detroy_j
+** Last update Fri Mar  3 10:21:42 2017 detroy_j
 */
 
 #include "tetriminos.h"
@@ -70,6 +70,7 @@ struct s_options
   char	*k_drop;
   char	*k_quit;
   char	*k_pause;
+  char	k_defined[6];
   int	map_size_col;
   int	map_size_row;
   short	without_next;

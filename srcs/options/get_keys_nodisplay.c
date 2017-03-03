@@ -5,7 +5,7 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Wed Mar  1 13:31:27 2017 detroy_j
-** Last update Fri Mar  3 09:30:02 2017 detroy_j
+** Last update Fri Mar  3 10:32:39 2017 detroy_j
 */
 
 #include <stdlib.h>
@@ -20,7 +20,7 @@ char	*get_no_display_key(char *str)
   int	len;
   char	*result;
 
-  my_putstr(str);
+  //my_putstr(str);
   if (str == 0)
     return (NULL);
   if (str[0] == 27)

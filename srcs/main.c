@@ -5,7 +5,7 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Feb 20 14:56:18 2017 detroy_j
-** Last update Fri Mar  3 08:38:10 2017 detroy_j
+** Last update Fri Mar  3 10:32:14 2017 detroy_j
 */
 
 #include <unistd.h>
@@ -31,7 +31,6 @@ char	*get_term_variable(char **env)
 	    {
 	      return (env[i]);
 	    }
-	  //free(result);
 	}
       i++;
     }

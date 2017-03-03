@@ -5,7 +5,7 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Feb 20 18:10:03 2017 detroy_j
-** Last update Wed Mar  1 15:28:32 2017 detroy_j
+** Last update Fri Mar  3 10:27:25 2017 detroy_j
 */
 
 #include <stdlib.h>
@@ -13,20 +13,16 @@
 
 void	set_key_quit(t_options *opts, char *value)
 {
-  /*int   nb;
-
-  nb = *value;
-  if (nb == 0)
-  exit(84);*/
+  if (opts->k_defined[4] == 1)
+    show_help(opts, 84);
   opts->k_quit = value;
+  opts->k_defined[4] = 1;
 }
 
 void	set_key_pause(t_options *opts, char *value)
 {
-  /*int   nb;
-
-  nb = *value;
-  if (nb == 0)
-  exit(84);*/
+  if (opts->k_defined[5] == 1)
+    show_help(opts, 84);
   opts->k_pause = value;
+  opts->k_defined[5] = 1;
 }
