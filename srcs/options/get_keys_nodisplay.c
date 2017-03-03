@@ -5,7 +5,7 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Wed Mar  1 13:31:27 2017 detroy_j
-** Last update Wed Mar  1 18:12:16 2017 detroy_j
+** Last update Fri Mar  3 09:30:02 2017 detroy_j
 */
 
 #include <stdlib.h>
@@ -19,28 +19,25 @@ char	*get_no_display_key(char *str)
 {
   int	len;
   char	*result;
-  
+
+  my_putstr(str);
   if (str == 0)
     return (NULL);
-  len = my_strlen(str);
-  if ((result = malloc(sizeof(char) * len + 2)) == NULL)
-    exit(84);
-  
-  if (my_strlen(str) > 2)
+  if (str[0] == 27)
     {
+      len = my_strlen(str);
+      if ((result = malloc(sizeof(char) * len + 2)) == NULL)
+	exit(84);
+      len = 1;
       result[0] = '^';
       result[1] = 'E';
-      result[2] = 'O';
-      result[3] = str[2];
-      result[4] = '\0';
+      while (str[len] != '\0')
+	{
+	  result[len + 1] = str[len];
+	  len ++;
+	}
+      result[len + 1] = '\0';
     }
-  else
-    {
-      result[0] = '^';
-      result[1] = 'E';
-      result[2] = str[1];
-      result[3] = '\0';
-    }
-  return (result);
+    return (result);
 }
 

@@ -5,7 +5,7 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Feb 20 14:56:18 2017 detroy_j
-** Last update Thu Mar  2 17:18:55 2017 detroy_j
+** Last update Fri Mar  3 08:38:10 2017 detroy_j
 */
 
 #include <unistd.h>
@@ -17,13 +17,34 @@
 #include "options.h"
 #include "tetriminos.h"
 
-int	main(int ac, char **av)
+char	*get_term_variable(char **env)
+{
+  char	*result;
+  int	i;
+
+  i = 0;
+  while (env[i] != NULL)
+    {
+      while ((result = my_strsep(&env[i], "=")) != NULL)
+	{
+	  if (my_strcmp(result, "TERM") == 0)
+	    {
+	      return (env[i]);
+	    }
+	  //free(result);
+	}
+      i++;
+    }
+  return (NULL);
+}
+
+int	main(int ac, char **av, char **env)
 {
   t_game	*game;
   t_options	*opts;
   int	error;
 
-  if (setupterm(NULL, 1, &error) != OK)
+  if (setupterm(get_term_variable(env), 1, &error) != OK)
     return (84);
   opts = init_options();
   if ((opts->bin_name = malloc(sizeof(char) * my_strlen(av[0]) + 1)) == NULL)
