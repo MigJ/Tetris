@@ -5,7 +5,7 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Feb 20 18:12:59 2017 detroy_j
-** Last update Mon Mar  6 15:30:52 2017 detroy_j
+** Last update Mon Mar  6 15:32:13 2017 detroy_j
 */
 
 #include <stdlib.h>
@@ -63,7 +63,6 @@ void	check_error_key(t_options *opts)
   (is_double_key(opts, opts->k_drop)) ? i++ : 0;
   (is_double_key(opts, opts->k_pause)) ? i++ : 0;
   (is_double_key(opts, opts->k_quit)) ? i++ : 0;
-
   if (i != 0)
     exit(84);
 }
