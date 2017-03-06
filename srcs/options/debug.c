@@ -5,7 +5,7 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Feb 20 18:15:33 2017 detroy_j
-** Last update Fri Mar  3 20:06:13 2017 detroy_j
+** Last update Mon Mar  6 02:50:50 2017 detroy_j
 */
 
 #include <stdlib.h>
@@ -32,7 +32,7 @@ static void	print_tetrimino(t_tetrimino *t)
   my_putstr(" : Size ");
   my_put_nbr(t->col);
   my_putchar('*');
-  my_put_nbr(t->color);
+  my_put_nbr(t->row);
   my_putstr(" : Color ");
   my_put_nbr(t->color);
   my_putstr(" :\n");

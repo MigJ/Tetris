@@ -5,7 +5,7 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Feb 20 18:12:59 2017 detroy_j
-** Last update Wed Mar  1 15:30:57 2017 detroy_j
+** Last update Mon Mar  6 02:51:32 2017 detroy_j
 */
 
 #include <stdlib.h>
@@ -40,7 +40,6 @@ void	check_error_key(t_options *opts)
 
   if (i != 0)
     {
-      my_putstr_error("Error: Keys are used twice or more\n");
       exit(84);
     }
 }

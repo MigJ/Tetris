@@ -5,7 +5,7 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Feb 20 14:56:18 2017 detroy_j
-** Last update Fri Mar  3 13:44:12 2017 detroy_j
+** Last update Mon Mar  6 02:51:54 2017 detroy_j
 */
 
 #include <unistd.h>
@@ -53,9 +53,9 @@ int	main(int ac, char **av, char **env)
   game->tetriminos = 0;
   open_directory(game);
   order(game);
+  check_error_key(opts);
   if (opts->debug == 1)
     show_debug(game, opts);
-  check_error_key(opts);
   my_free_options(opts);
   my_free_tetriminos(game);
   return (0);
