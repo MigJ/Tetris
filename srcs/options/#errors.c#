@@ -63,7 +63,6 @@ void	check_error_key(t_options *opts)
   (is_double_key(opts, opts->k_drop)) ? i++ : 0;
   (is_double_key(opts, opts->k_pause)) ? i++ : 0;
   (is_double_key(opts, opts->k_quit)) ? i++ : 0;
-
   if (i != 0)
     exit(84);
 }

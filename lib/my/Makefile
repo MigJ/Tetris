@@ -5,13 +5,11 @@
 ## Login   <detroy_j@epitech.net>
 ## 
 ## Started on  Fri Oct 14 07:47:24 2016 jean-baptiste detroyes
-## Last update Wed Mar  1 18:26:31 2017 detroy_j
+## Last update Mon Mar  6 14:58:07 2017 detroy_j
 ##
 
 SRCS	=	my_putchar.c	\
-		my_isneg.c	\
 		my_put_nbr.c	\
-		my_swap.c	\
 		my_putstr.c	\
 		my_strlen.c	\
 		my_getnbr.c	\
@@ -24,6 +22,7 @@ SRCS	=	my_putchar.c	\
 		my_strncpy.c	\
 		my_revstr.c	\
 		my_strstr.c	\
+		my_memset.c	\
 		my_strcmp.c	\
 		my_strupcase.c	\
 		my_strlowcase.c	\

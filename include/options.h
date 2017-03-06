@@ -5,7 +5,7 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Feb 20 14:51:00 2017 detroy_j
-** Last update Fri Mar  3 13:21:54 2017 detroy_j
+** Last update Mon Mar  6 15:30:10 2017 detroy_j
 */
 
 #include "tetriminos.h"
@@ -114,7 +114,6 @@ void    set_map_size(t_options *opts, char *value);
 ** Error handling
 */
 void    check_error_key(t_options *opts);
-int     is_double_key(t_options *opts, char *key);
 
 /*
 ** Debug & Help
