@@ -5,7 +5,7 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Feb 20 14:56:18 2017 detroy_j
-** Last update Mon Mar  6 02:51:54 2017 detroy_j
+** Last update Mon Mar  6 16:58:40 2017 detroy_j
 */
 
 #include <unistd.h>
@@ -58,5 +58,6 @@ int	main(int ac, char **av, char **env)
     show_debug(game, opts);
   my_free_options(opts);
   my_free_tetriminos(game);
+  getchar();
   return (0);
 }

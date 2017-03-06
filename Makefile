@@ -5,7 +5,7 @@
 ## Login   <detroy_j@epitech.net>
 ## 
 ## Started on  Fri Oct 14 07:47:24 2016 jean-baptiste detroyes
-## Last update Fri Mar  3 13:30:30 2017 detroy_j
+## Last update Mon Mar  6 15:35:01 2017 detroy_j
 ##
 
 SRCS	=	srcs/main.c	\
@@ -28,7 +28,7 @@ SRCS	=	srcs/main.c	\
 
 FLAGS	=	-Llib -lmy -lncurses
 
-CFLAGS	+=	-g -Wextra -Wall -I include
+CFLAGS	+=	-Wextra -Wall -I include
 
 OBJ	=	$(SRCS:.c=.o)
 

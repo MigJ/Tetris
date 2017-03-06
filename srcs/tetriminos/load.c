@@ -5,7 +5,7 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Wed Feb 22 18:33:27 2017 detroy_j
-** Last update Fri Mar  3 20:10:30 2017 detroy_j
+** Last update Mon Mar  6 16:45:15 2017 detroy_j
 */
 
 #include <fcntl.h>
@@ -19,10 +19,12 @@
 static void	read_file_config(t_tetrimino *tetri, char *str)
 {
   char		*value;
+  char		**add;
   int		i;
 
   i = 0;
-  while ((value = my_strsep(&str, " ")) != NULL)
+  add = &str;
+  while ((value = my_strsep(add, " ")) != NULL)
     {
       (i == 0) ? tetri->col = my_getnbr(value) : 0;
       (i == 1) ? tetri->row = my_getnbr(value) : 0;
@@ -96,7 +98,7 @@ static void	malloc_tetrimino(t_tetrimino *t, int fd)
   if ((str = get_next_line(fd)) != NULL)
     {
       read_file_config(t, str);
-      free(str);
+      (str != NULL) ? free(str) : 0;
     }
   if (t->row > 0 && t->col > 0)
     {
@@ -134,9 +136,9 @@ int	load_file(t_game *game, char *name, int fd)
   while ((str = get_next_line(fd)) != NULL && j < new->row)
     {
       l = read_file_map(new, str, i, l);
-      free(str);
       i++;
       j++;
+      free(str);
     }
   if (l + 1 < new->col || new->color == -1 || new->col == -1
       || new->row == -1 || new->color >= 1000)
