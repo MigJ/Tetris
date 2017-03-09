@@ -5,7 +5,7 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Wed Feb 22 18:33:27 2017 detroy_j
-** Last update Mon Mar  6 16:45:15 2017 detroy_j
+** Last update Thu Mar  9 17:06:12 2017 detroy_j
 */
 
 #include <fcntl.h>
@@ -46,10 +46,17 @@ static int	read_file_map(t_tetrimino *tetri, char *str, int i, int l)
   k = my_strlen(str);
   if (k > tetri->col)
     {
-      tetri->valid = 0;
-      return (0);
+      while (k >= tetri->col)
+	{
+	  if (str[k] == '*')
+	    {
+	      tetri->valid = 0;
+	      return (0);
+	    }
+	  k--;
+	}
     }
-  while (str[j] != '\0')
+  while (str[j] != '\0' && j < tetri->col)
     {
       if (str[j] != '*' && str[j] != ' ')
 	return (tetri->valid = 0);
@@ -61,6 +68,15 @@ static int	read_file_map(t_tetrimino *tetri, char *str, int i, int l)
   while (j < tetri->col)
     tetri->shape[i][j++] = ' ';
   tetri->d_shape[i] = my_strdup(str);
+  k = my_strlen(tetri->d_shape[i]) - 1;
+  while (k > 0)
+    {
+      if (tetri->d_shape[i][k] == ' ')
+	tetri->d_shape[i][k] = '\0';
+      else if (tetri->d_shape[i][k] == '*')
+	break;
+      k--;
+    }
   tetri->shape[i][j] = '\0';
   return (l);
 }
