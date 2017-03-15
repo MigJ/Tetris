@@ -5,7 +5,7 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Feb 20 18:02:37 2017 detroy_j
-** Last update Fri Mar  3 20:06:47 2017 detroy_j
+** Last update Thu Mar  9 17:24:39 2017 detroy_j
 */
 
 #include <stdlib.h>
@@ -56,7 +56,10 @@ void	get_short_option(t_options *opts, char *name, char *value)
   else if (my_strcmp(name, SOPT_KEY_PAUSE) == 0)
     set_key_pause(opts, value);
   else
-    show_help(opts, 84);
+    {
+      printf("ERROR ici\n");
+      show_help(opts, 84);
+    }
 }
 
 int	get_static_arguments(t_options *opts, int i, char **av)
