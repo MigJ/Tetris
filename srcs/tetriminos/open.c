@@ -5,7 +5,7 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Wed Feb 22 18:36:20 2017 detroy_j
-** Last update Mon Mar  6 16:44:10 2017 detroy_j
+** Last update Sat Mar 18 14:43:14 2017 detroy_j
 */
 
 #include <stdlib.h>
@@ -16,6 +16,26 @@
 #include <dirent.h>
 #include "tetriminos.h"
 #include "my.h"
+
+int	check_line(t_tetrimino *t, char *str)
+{
+  int   k;
+
+  k = my_strlen(str);
+  if (k > t->col)
+    {
+      while (k >= t->col)
+	{
+	  if (str[k] == '*')
+	    {
+	      t->valid = 0;
+	      return (0);
+	    }
+	  k--;
+	}
+    }
+  return (1);
+}
 
 void	set_pointer(t_game *game, t_tetrimino *t, int fd)
 {
@@ -30,19 +50,19 @@ void	set_pointer(t_game *game, t_tetrimino *t, int fd)
   close(fd);
 }
 
-int	open_directory(t_game *game)
+void		open_directory(t_game *game)
 {
-  DIR   *dir;
+  DIR		*dir;
   struct dirent *dp;
-  char  *path;
-  int	fd;
+  char		*path;
+  int		fd;
 
   if ((dir = opendir("tetriminos")) == NULL)
     exit(84);
   while ((dp = readdir(dir)) != NULL)
     {
-      if ((dp->d_name[0] == '.' && dp->d_name[1] == '.' && dp->d_name[1] != '\0')
-	  || (dp->d_name[0] == '.' && dp->d_name[1] != '\0'))
+      if (dp->d_name[0] == '.' && dp->d_name[1] == '.'
+	   && dp->d_name[1] != '\0')
 	continue;
       if (!is_valid_extension(dp->d_name))
 	continue;
@@ -57,5 +77,4 @@ int	open_directory(t_game *game)
 	}
     }
   closedir(dir);
-  return (0);
 }

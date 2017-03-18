@@ -5,7 +5,7 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Wed Feb 22 18:33:27 2017 detroy_j
-** Last update Wed Mar 15 13:48:23 2017 detroy_j
+** Last update Sat Mar 18 14:43:37 2017 detroy_j
 */
 
 #include <fcntl.h>
@@ -42,26 +42,12 @@ static int	read_file_map(t_tetrimino *tetri, char *str, int i, int l)
   int		j;
   int		k;
 
-  j = 0;
-  k = my_strlen(str);
-  if (k > tetri->col)
-    {
-      while (k >= tetri->col)
-	{
-	  if (str[k] == '*')
-	    {
-	      tetri->valid = 0;
-	      return (0);
-	    }
-	  k--;
-	}
-    }
+  j = k = 0;
+  if (!check_line(tetri, str)) return (tetri->valid = 0);
   while (str[j] != '\0' && j < tetri->col)
     {
-      if (str[j] != '*' && str[j] != ' ')
-	return (tetri->valid = 0);
-      if (l <= j)
-	l = j;
+      if (str[j] != '*' && str[j] != ' ') return (tetri->valid = 0);
+      (l <= j) ? l = j : 0;
       tetri->shape[i][j] = str[j];
       j++;
     }
@@ -71,10 +57,8 @@ static int	read_file_map(t_tetrimino *tetri, char *str, int i, int l)
   k = my_strlen(tetri->d_shape[i]) - 1;
   while (k > 0)
     {
-      if (tetri->d_shape[i][k] == ' ')
-	tetri->d_shape[i][k] = '\0';
-      else if (tetri->d_shape[i][k] == '*')
-	break;
+      if (tetri->d_shape[i][k] == ' ') tetri->d_shape[i][k] = '\0';
+      else if (tetri->d_shape[i][k] == '*') break;
       k--;
     }
   tetri->shape[i][j] = '\0';

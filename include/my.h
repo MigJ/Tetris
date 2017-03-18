@@ -5,11 +5,11 @@
 ** Login   <detroy_j@epitech.net>
 ** 
 ** Started on  Thu Oct 13 08:22:12 2016 jean-baptiste detroyes
-** Last update Wed Mar  1 12:33:53 2017 detroy_j
+** Last update Sat Mar 18 14:49:50 2017 detroy_j
 */
 
 #ifndef _MY_H_
-#define _MY_H_
+# define _MY_H_
 
 int	my_putchar(char c);
 int	my_isneg(int nb);
@@ -58,4 +58,4 @@ int     is_flag(char c);
 int     is_indicator(char c);
 int	my_printf(const char *format, ...);
 
-#endif
+# endif

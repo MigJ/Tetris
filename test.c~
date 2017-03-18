@@ -1,5 +1,0 @@
-int	main()
-{
-  execl("./tetris", "./tetris", "-d", "-kl", "\033E", 0);
-  return (0);
-}

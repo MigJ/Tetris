@@ -5,7 +5,7 @@
 ## Login   <detroy_j@epitech.net>
 ## 
 ## Started on  Fri Oct 14 07:47:24 2016 jean-baptiste detroyes
-## Last update Mon Mar  6 14:58:07 2017 detroy_j
+## Last update Wed Mar 15 14:10:48 2017 detroy_j
 ##
 
 SRCS	=	my_putchar.c	\
@@ -38,6 +38,7 @@ SRCS	=	my_putchar.c	\
 		my_strncat.c		\
 		my_strsep.c		\
 		my_strdup.c		\
+		my_strncmp.c	\
 		get_next_line.c
 ##		my_printf.c	\
 		prints.c	\
