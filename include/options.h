@@ -5,7 +5,7 @@
 ** Login   <jean-baptiste.detroyes@epitech.eu@epitech.net>
 ** 
 ** Started on  Mon Feb 20 14:51:00 2017 detroy_j
-** Last update Wed Mar 15 14:16:21 2017 detroy_j
+** Last update Sun Mar 19 19:46:41 2017 detroy_j
 */
 
 #include "tetriminos.h"
@@ -79,7 +79,7 @@ struct s_options
 };
 
 /*
-** Init 
+** Init
 */
 t_options       *init_options();
 
